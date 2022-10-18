@@ -1,6 +1,6 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
+import { useWallet } from "@solana/wallet-adapter-react"
 import type { NextPage } from "next"
-import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana"
 import {
   useProgram,
   useNFTs,
@@ -10,41 +10,49 @@ import {
 import {
   Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   Input,
   Stack,
-  useColorModeValue,
-  Container,
-  AspectRatio,
   Box,
-  BoxProps,
-  forwardRef,
   Text,
   Image,
   VStack,
   HStack,
 } from "@chakra-ui/react"
-import { useCallback, useState } from "react"
-// Default styles that can be overridden by your app
+import { useCallback, useState, useMemo } from "react"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana"
+import dotenv from "dotenv"
+dotenv.config()
+import * as fs from "fs"
+import Claim from "../components/Claim"
+import Collection from "../components/Collection"
+
+import dynamic from "next/dynamic"
+const XNft = dynamic(() => import("../components/XNFT"), { ssr: false })
+
 require("@solana/wallet-adapter-react-ui/styles.css")
 
 const Home: NextPage = () => {
   const [image, setImage] = useState()
-  // const [isLoading, setIsLoading] = useState(false)
+  const { wallet } = useWallet()
 
-  const sdk = useSDK()
-  console.log("test", sdk?.wallet.getAddress())
-  console.log(sdk)
+  const sdk = useMemo(() => useSDK(), [wallet])
+  // const sdk = ThirdwebSDK.fromPrivateKey(
+  //   "devnet",
+  //   process.env.NEXT_PUBLIC_PRIVATE_KEY!
+  // )
+  // console.log(process.env.NEXT_PUBLIC_PRIVATE_KEY)
+  // console.log("test", sdk?.wallet.getAddress())
+  // console.log("test", sdk?.wallet.isConnected)
+  // console.log("sdk", sdk)
   const { data: myNftCollectionProgram } = useProgram(
     "88KmLboXkyCj5T4U4Jecn4WtQB9Cp6Dnqn8K5BXKiUC2",
     "nft-collection"
   )
 
   const { data: myNfts } = useNFTs(myNftCollectionProgram)
-  console.log(myNftCollectionProgram)
-  console.log(myNfts)
+  console.log("program", myNftCollectionProgram)
+  console.log("nfts", myNfts)
 
   const {
     mutate: mintNFT,
@@ -53,19 +61,22 @@ const Home: NextPage = () => {
     error,
   } = useMintNFT(myNftCollectionProgram)
 
-  const handleImage = async (event) => {
+  const handleImage = async (event: any) => {
     setImage(event.target.files[0])
   }
 
   return (
     <Flex minH={"100vh"} align={"center"} justify={"center"}>
       <VStack>
+        <XNft />
         <HStack>
           <Image src="/thirdweb.svg" height={75} width={115} />
           <Image width={75} height={75} src="/sol.png" />
         </HStack>
-        {sdk?.wallet.isConnected() ? (
-          // <p>hello</p>
+        {/* <WalletMultiButton /> */}
+        <Collection />
+        <Claim />
+        {/* {sdk?.wallet.isConnected ? (
           <VStack>
             <Box position="relative" height="100%" width="100%">
               <Box
@@ -128,6 +139,7 @@ const Home: NextPage = () => {
                     image: image,
                   },
                   to: sdk?.wallet.getAddress(),
+                  // to: window.xnft.solana.publicKey,
                 })
               }
             >
@@ -137,7 +149,7 @@ const Home: NextPage = () => {
         ) : (
           <WalletMultiButton />
         )}
-        {isSuccess ? <Text>Success</Text> : <></>}
+        {isSuccess ? <Text>Success</Text> : <></>} */}
       </VStack>
     </Flex>
   )
