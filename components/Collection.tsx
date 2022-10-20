@@ -128,13 +128,7 @@ export default function Collection() {
       ) : (
         <WalletMultiButton />
       )}
-      {isSuccess ? (
-        <Text align={"center"} justify={"center"}>
-          Success
-        </Text>
-      ) : (
-        <></>
-      )}
+      {isSuccess ? <Text align={"center"}>Success</Text> : <></>}
     </div>
   )
 }
