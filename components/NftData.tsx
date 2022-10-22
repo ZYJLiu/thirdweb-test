@@ -94,7 +94,7 @@ const NftData: FC<Props> = (props) => {
   const Redeem = async () => {}
 
   return (
-    <VStack alignItems="flex-start" margin={5}>
+    <VStack margin={3}>
       {nftData && (
         <VStack
           bgColor="rgba(255, 255, 255, 0.1)"
@@ -119,18 +119,20 @@ const NftData: FC<Props> = (props) => {
             {isStaking ? `${stakeTime}` : "READY TO STAKE"}
           </Text>
           <Text as="b">Rewards: {stakeRewards}</Text>
-          {isStaking ? (
-            <Button onClick={Redeem} bgColor="buttonGreen">
-              <Text as="b">Redeem </Text>
+          <HStack padding="5px 10px">
+            {isStaking ? (
+              <Button onClick={Redeem} bgColor="buttonGreen">
+                <Text as="b">Redeem </Text>
+              </Button>
+            ) : (
+              <Text color="bodyText" as="b">
+                Earn Rewards
+              </Text>
+            )}
+            <Button onClick={isStaking ? Unstake : Stake}>
+              <Text as="b">{isStaking ? "Unstake" : "Stake"}</Text>
             </Button>
-          ) : (
-            <Text color="bodyText" as="b">
-              Earn Rewards
-            </Text>
-          )}
-          <Button onClick={isStaking ? Unstake : Stake}>
-            <Text as="b">{isStaking ? "Unstake" : "Stake"}</Text>
-          </Button>
+          </HStack>
         </VStack>
       )}
     </VStack>

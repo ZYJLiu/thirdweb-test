@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Button, HStack, VStack, Image } from "@chakra-ui/react"
+import { Button, HStack, VStack, Image, Flex } from "@chakra-ui/react"
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons"
 import { candyMachineAddress } from "../utils/constants"
 import { useProgram } from "@thirdweb-dev/react/solana"
@@ -47,12 +47,10 @@ export default function DisplayNfts() {
   }, [program, wallet])
 
   return (
-    <VStack>
-      <HStack spacing={10}>
-        {nfts?.map((nft) => (
-          <NftData key={nft.address} nft={nft} />
-        ))}
-      </HStack>
-    </VStack>
+    <Flex direction={[`column`, `column`, "row", "row"]}>
+      {nfts?.map((nft) => (
+        <NftData key={nft.address} nft={nft} />
+      ))}
+    </Flex>
   )
 }
