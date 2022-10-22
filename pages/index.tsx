@@ -6,7 +6,8 @@ dotenv.config()
 import Claim from "../components/Claim"
 import Collection from "../components/Collection"
 import Token from "../components/Token"
-import CandyMachine from "../components/DisplayCandyMachine"
+import DisplayNfts from "../components/DisplayNfts"
+import Test from "../components/Test"
 
 import dynamic from "next/dynamic"
 const XNft = dynamic(() => import("../components/XNFT"), { ssr: false })
@@ -26,7 +27,9 @@ const Home: NextPage = () => {
         {/* <Token /> */}
         {/* <Collection /> */}
 
-        <Claim />
+        {/* <Claim /> */}
+        <DisplayNfts />
+        {/* <Test /> */}
       </VStack>
     </Flex>
   )
