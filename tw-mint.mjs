@@ -5,7 +5,10 @@ import dotenv from "dotenv"
 import { readFileSync } from "fs"
 dotenv.config()
 
-const sdk = ThirdwebSDK.fromPrivateKey("devnet", process.env.PRIVATE_KEY)
+const sdk = ThirdwebSDK.fromPrivateKey(
+  "https://devnet.genesysgo.net/",
+  process.env.PRIVATE_KEY
+)
 const myNftCollection = await sdk.getNFTCollection(
   "H3JHkx58NCDYbJkEqBisstSGkERdGhVpMknDo2yBG3CT"
 )

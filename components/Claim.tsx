@@ -1,33 +1,23 @@
+//@ts-ignore
 import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana"
-import {
-  Button,
-  Flex,
-  Heading,
-  Input,
-  Stack,
-  Box,
-  Text,
-  Image,
-  VStack,
-  HStack,
-} from "@chakra-ui/react"
-import { useEffect, useMemo, useState, useCallback } from "react"
+import { Button, Heading, Text, Image, VStack } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { candyMachineAddress } from "../utils/constants"
+import DisplayCandyMachine from "./DisplayCandyMachine"
 
 export default function Claim() {
   const [wallet, setWallet] = useState(null)
   const [nft, setNft] = useState<any>()
-  const [mint, setMint] = useState<any>()
 
   useEffect(() => {
+    //@ts-ignore
     if (typeof window.xnft !== "undefined") {
+      //@ts-ignore
       setWallet(window.xnft.solana)
     }
   }, [])
 
-  const { program } = useProgram(
-    "53UTAfjzdtVN6wZw5oad1NBBZcUEtqboYc17Zcn5s94W",
-    "nft-drop"
-  )
+  const { program } = useProgram(candyMachineAddress.toString(), "nft-drop")
   // using the useClaimNFT hook here
   const {
     mutateAsync: claim,
@@ -46,10 +36,19 @@ export default function Claim() {
 
   return (
     <VStack>
+      <Heading color="white" noOfLines={1} textAlign="center">
+        Candy Machine
+      </Heading>
       {nft ? (
-        <Image width="200px" borderRadius="25px" src={nft.metadata.image} />
+        <Image
+          borderRadius="25px"
+          boxSize="200px"
+          width="200px"
+          src={nft.metadata.image}
+          padding="10px"
+        />
       ) : (
-        <></>
+        <DisplayCandyMachine />
       )}
 
       {wallet ? (
@@ -62,10 +61,9 @@ export default function Claim() {
           width="150px"
           mb={2}
           isLoading={isLoading}
-          // onClick={() => claim({ amount: 1 })}
           onClick={() => handleClick()}
         >
-          CM
+          Candy Machine
         </Button>
       ) : (
         <Text>Backpack Not Connected</Text>

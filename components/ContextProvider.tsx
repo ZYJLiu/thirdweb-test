@@ -9,8 +9,7 @@ import { Network } from "@thirdweb-dev/sdk/solana"
 require("@solana/wallet-adapter-react-ui/styles.css")
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const network: Network = "devnet"
-  // const endpoint = useMemo(() => "https://devnet.genesysgo.net/", [network])
+  const network: Network = "https://devnet.genesysgo.net/"
 
   const wallets = useMemo(
     () => [new BackpackWalletAdapter(), new PhantomWalletAdapter()],

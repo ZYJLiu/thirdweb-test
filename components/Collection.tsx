@@ -22,17 +22,9 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 
 export default function Collection() {
   const [image, setImage] = useState()
-  const { wallet } = useWallet()
+  const { wallet, publicKey } = useWallet()
 
   const sdk = useMemo(() => useSDK(), [wallet])
-  // const sdk = ThirdwebSDK.fromPrivateKey(
-  //   "devnet",
-  //   process.env.NEXT_PUBLIC_PRIVATE_KEY!
-  // )
-  // console.log(process.env.NEXT_PUBLIC_PRIVATE_KEY)
-  // console.log("test", sdk?.wallet.getAddress())
-  // console.log("test", sdk?.wallet.isConnected)
-  // console.log("sdk", sdk)
   const { data: myNftCollectionProgram } = useProgram(
     "88KmLboXkyCj5T4U4Jecn4WtQB9Cp6Dnqn8K5BXKiUC2",
     "nft-collection"
@@ -118,7 +110,9 @@ export default function Collection() {
                   image: image,
                 },
                 // to: sdk?.wallet.getAddress(),
-                to: window.xnft.solana.publicKey,
+                //@ts-ignore
+                to: window.xnft.solana.publicKey || publicKey,
+                // to: publicKey,
               })
             }
           >

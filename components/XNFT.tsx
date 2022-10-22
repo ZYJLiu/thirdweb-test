@@ -1,35 +1,14 @@
 //ngrok http 3000
-import {
-  Button,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  VStack,
-  FormLabel,
-  useDisclosure,
-  Text,
-  Heading,
-} from "@chakra-ui/react"
+import { VStack, Text } from "@chakra-ui/react"
 import { useEffect, useState, useCallback } from "react"
-
-import { useWallet } from "@solana/wallet-adapter-react"
-
-import {
-  Connection,
-  LAMPORTS_PER_SOL,
-  PublicKey,
-  SystemProgram,
-  Transaction,
-} from "@solana/web3.js"
 
 const XNft = () => {
   const [publicKey, setPublicKey] = useState(null)
 
   useEffect(() => {
+    //@ts-ignore
     if (typeof window.xnft !== "undefined") {
-      // console.log("testing", window.xnft)
+      //@ts-ignore
       setPublicKey(window.xnft.solana.publicKey)
     }
   }, [])

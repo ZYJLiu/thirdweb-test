@@ -5,6 +5,8 @@ import dotenv from "dotenv"
 dotenv.config()
 import Claim from "../components/Claim"
 import Collection from "../components/Collection"
+import Token from "../components/Token"
+import CandyMachine from "../components/DisplayCandyMachine"
 
 import dynamic from "next/dynamic"
 const XNft = dynamic(() => import("../components/XNFT"), { ssr: false })
@@ -20,8 +22,10 @@ const Home: NextPage = () => {
           <Image src="/thirdweb.svg" height={75} width={115} />
           <Image src="/sol.png" width={75} height={75} />
         </HStack>
-        {/* <WalletMultiButton /> */}
-        <Collection />
+        <WalletMultiButton />
+        {/* <Token /> */}
+        {/* <Collection /> */}
+
         <Claim />
       </VStack>
     </Flex>
