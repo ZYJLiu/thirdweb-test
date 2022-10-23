@@ -23,7 +23,7 @@ const Home: NextPage = () => {
           <Image src="/thirdweb.svg" height={75} width={115} />
           <Image src="/sol.png" width={75} height={75} />
         </HStack>
-        <WalletMultiButton />
+        {/* <WalletMultiButton /> */}
         {/* <Token /> */}
         {/* <Collection /> */}
 

@@ -1,4 +1,3 @@
-//@ts-ignore
 import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana"
 import { Button, Heading, Text, Image, VStack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
@@ -63,7 +62,7 @@ export default function Claim() {
           isLoading={isLoading}
           onClick={() => handleClick()}
         >
-          Candy Machine
+          Mint
         </Button>
       ) : (
         <Text>Backpack Not Connected</Text>

@@ -116,7 +116,7 @@ export default function Collection() {
               })
             }
           >
-            Mint
+            Create NFT
           </Button>
         </VStack>
       ) : (

@@ -6,7 +6,7 @@ import { useProgram } from "@thirdweb-dev/react/solana"
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js"
 import { Connection } from "@solana/web3.js"
-import NftData from "./NftData"
+import StakeNft from "./StakeNft"
 
 export default function DisplayNfts() {
   const [nfts, setNfts] = useState<any[]>()
@@ -49,7 +49,7 @@ export default function DisplayNfts() {
   return (
     <Flex direction={[`column`, `column`, "row", "row"]}>
       {nfts?.map((nft) => (
-        <NftData key={nft.address} nft={nft} />
+        <StakeNft key={nft.address} nft={nft} />
       ))}
     </Flex>
   )
