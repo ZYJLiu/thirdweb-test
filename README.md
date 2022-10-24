@@ -2,6 +2,7 @@
 
 - Connect with Phantom Wallet or Backpack
 - Tested as Backpack xNFT using an Iframe
+
 https://www.youtube.com/watch?v=PaAp5qg6LLY&ab_channel=OhFun
 
 - Used Thirdweb "DROP" to create and mint from a Candy Machine
