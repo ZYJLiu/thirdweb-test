@@ -11,7 +11,6 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react"
 import {
@@ -29,14 +28,14 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        bg="gray.800"
+        color="white"
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor="gray.900"
         align={"center"}
       >
         <Flex
@@ -56,7 +55,6 @@ export default function Navbar() {
         <HStack justify={"flex-end"} direction={"row"} spacing={6}>
           <WalletMultiButton />
         </HStack>
-        {/* <DarkModeSwitch /> */}
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -72,9 +70,9 @@ export default function Navbar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200")
-  const linkHoverColor = useColorModeValue("gray.800", "white")
-  const popoverContentBgColor = useColorModeValue("white", "gray.800")
+  const linkColor = "gray.200"
+  const linkHoverColor = "white"
+  const popoverContentBgColor = "gray.800"
 
   return (
     <HStack direction={"row"} spacing={4}>
@@ -129,7 +127,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
         display={"block"}
         p={2}
         rounded={"md"}
-        _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+        _hover={{ bg: "gray.900" }}
       >
         <Stack direction={"row"} align={"center"}>
           <Box>
@@ -161,11 +159,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      p={4}
-      display={{ md: "none" }}
-    >
+    <Stack bg="gray.800" p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -188,10 +182,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+        <Text fontWeight={600} color="gray.200">
           {label}
         </Text>
         {children && (
@@ -211,7 +202,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
+          borderColor="gray.700"
           align={"start"}
         >
           {children &&
