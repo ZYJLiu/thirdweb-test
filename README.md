@@ -1,32 +1,14 @@
-## Solana frontend started kit
+## NFT Minting and Staking using Thirdweb SDK
 
-This template has everything you need to build a web3 app on Solana using the thirdweb SDK.
+- Works with Phantom Wallet and Backpack
+- Tested as Backpack xNFT 
 
-## Getting Started
+https://www.youtube.com/watch?v=PaAp5qg6LLY&ab_channel=OhFun
 
-Create a project using this example:
+- Used Thirdweb "DROP" to create and mint from a Candy Machine
+- Used Thirdweb `getProgram` to fetch IDL of existing Anchor Staking program and invoke instructions on Anchor Staking program
+https://github.com/ZYJLiu/anchor-nft-staking-test
 
-```bash
-npx thirdweb create --template next-typescript-solana-starter
-```
+- Used Thirdweb "TOKEN" to create and mint new SPL token with metadata
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-On `pages/_app.tsx`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our hooks to work.
-
-on `pages/index.tsx`, you'll find an example of a connect wallet button and some hooks.
-
-## Learn More
-
-To learn more about thirdweb and Next.js, take a look at the following resources:
-
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+- Tested Thirdweb "COLLECTION", but it only enables original creator of the "collection nft" to add new NFTs to the collection
