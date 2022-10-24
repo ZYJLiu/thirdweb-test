@@ -1,6 +1,6 @@
 ## NFT Minting and Staking using Thirdweb SDK
 
-- Connect with Phantom Wallet or Backpack
+- Connect to Devnet with Phantom Wallet or Backpack
 - Tested as Backpack xNFT using an Iframe
 
 https://www.youtube.com/watch?v=PaAp5qg6LLY&ab_channel=OhFun
