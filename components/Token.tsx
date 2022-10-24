@@ -74,7 +74,9 @@ export default function Token() {
   return (
     <div>
       {mint ? (
-        <Link href={link()}>Success! Click Here</Link>
+        <Link color="white" href={link()}>
+          Success! Click Here
+        </Link>
       ) : (
         <>
           {" "}
@@ -158,7 +160,7 @@ export default function Token() {
                                 <Stack p="8" textAlign="center" spacing="1">
                                   <Heading
                                     fontSize="lg"
-                                    color="white"
+                                    color="gray.500"
                                     fontWeight="bold"
                                   >
                                     Drop image here

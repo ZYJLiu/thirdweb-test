@@ -17,7 +17,6 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   )
 
   return (
-    // TODO: updates needed for updating and referencing endpoint: wallet adapter rework
     <ThirdwebProvider network={network} wallets={wallets} autoConnect>
       <WalletModalProvider>{children}</WalletModalProvider>
     </ThirdwebProvider>

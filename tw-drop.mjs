@@ -27,217 +27,217 @@ const metadata = [
     image: readFileSync("./test.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "1",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My second NFT!",
+    name: "NFT #2",
+    description: "My first NFT!",
     image: readFileSync("./test2.png"),
     properties: [
       {
-        name: "grumpy cat",
-        value: "grumpy!",
+        name: "trait",
+        value: "2",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My third NFT!",
+    name: "NFT #3",
+    description: "My first NFT!",
     image: readFileSync("./test3.png"),
     properties: [
       {
-        name: "Ninja Cat",
-        value: "warrior!",
+        name: "trait",
+        value: "3",
       },
     ],
   },
   {
-    name: "NFT #1",
+    name: "NFT #4",
+    description: "My first NFT!",
+    image: readFileSync("./test4.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "4",
+      },
+    ],
+  },
+  {
+    name: "NFT #5",
+    description: "My first NFT!",
+    image: readFileSync("./test5.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "5",
+      },
+    ],
+  },
+  {
+    name: "NFT #6",
     description: "My first NFT!",
     image: readFileSync("./test.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "1",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My second NFT!",
+    name: "NFT #7",
+    description: "My first NFT!",
     image: readFileSync("./test2.png"),
     properties: [
       {
-        name: "grumpy cat",
-        value: "grumpy!",
+        name: "trait",
+        value: "2",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My third NFT!",
+    name: "NFT #8",
+    description: "My first NFT!",
     image: readFileSync("./test3.png"),
     properties: [
       {
-        name: "Ninja Cat",
-        value: "warrior!",
+        name: "trait",
+        value: "3",
       },
     ],
   },
   {
-    name: "NFT #1",
+    name: "NFT #9",
+    description: "My first NFT!",
+    image: readFileSync("./test4.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "4",
+      },
+    ],
+  },
+  {
+    name: "NFT #10",
+    description: "My first NFT!",
+    image: readFileSync("./test5.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "5",
+      },
+    ],
+  },
+  {
+    name: "NFT #11",
     description: "My first NFT!",
     image: readFileSync("./test.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "1",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My second NFT!",
+    name: "NFT #12",
+    description: "My first NFT!",
     image: readFileSync("./test2.png"),
     properties: [
       {
-        name: "grumpy cat",
-        value: "grumpy!",
+        name: "trait",
+        value: "2",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My third NFT!",
+    name: "NFT #13",
+    description: "My first NFT!",
     image: readFileSync("./test3.png"),
     properties: [
       {
-        name: "Ninja Cat",
-        value: "warrior!",
+        name: "trait",
+        value: "3",
       },
     ],
   },
   {
-    name: "NFT #1",
+    name: "NFT #14",
+    description: "My first NFT!",
+    image: readFileSync("./test4.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "4",
+      },
+    ],
+  },
+  {
+    name: "NFT #15",
+    description: "My first NFT!",
+    image: readFileSync("./test5.png"),
+    properties: [
+      {
+        name: "trait",
+        value: "5",
+      },
+    ],
+  },
+  {
+    name: "NFT #16",
     description: "My first NFT!",
     image: readFileSync("./test.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "1",
       },
     ],
   },
   {
-    name: "NFT #1",
+    name: "NFT #17",
     description: "My first NFT!",
-    image: readFileSync("./test.png"),
-    properties: [
-      {
-        name: "kitten",
-        value: "very cute!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
-    description: "My second NFT!",
     image: readFileSync("./test2.png"),
     properties: [
       {
-        name: "grumpy cat",
-        value: "grumpy!",
+        name: "trait",
+        value: "2",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My third NFT!",
+    name: "NFT #18",
+    description: "My first NFT!",
     image: readFileSync("./test3.png"),
     properties: [
       {
-        name: "Ninja Cat",
-        value: "warrior!",
+        name: "trait",
+        value: "3",
       },
     ],
   },
   {
-    name: "NFT #1",
+    name: "NFT #19",
     description: "My first NFT!",
-    image: readFileSync("./test.png"),
+    image: readFileSync("./test4.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "4",
       },
     ],
   },
   {
-    name: "NFT #1",
-    description: "My second NFT!",
-    image: readFileSync("./test2.png"),
-    properties: [
-      {
-        name: "grumpy cat",
-        value: "grumpy!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
-    description: "My third NFT!",
-    image: readFileSync("./test3.png"),
-    properties: [
-      {
-        name: "Ninja Cat",
-        value: "warrior!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
+    name: "NFT #20",
     description: "My first NFT!",
-    image: readFileSync("./test.png"),
+    image: readFileSync("./test5.png"),
     properties: [
       {
-        name: "kitten",
-        value: "very cute!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
-    description: "My second NFT!",
-    image: readFileSync("./test2.png"),
-    properties: [
-      {
-        name: "grumpy cat",
-        value: "grumpy!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
-    description: "My third NFT!",
-    image: readFileSync("./test3.png"),
-    properties: [
-      {
-        name: "Ninja Cat",
-        value: "warrior!",
-      },
-    ],
-  },
-  {
-    name: "NFT #1",
-    description: "My first NFT!",
-    image: readFileSync("./test.png"),
-    properties: [
-      {
-        name: "kitten",
-        value: "very cute!",
+        name: "trait",
+        value: "5",
       },
     ],
   },

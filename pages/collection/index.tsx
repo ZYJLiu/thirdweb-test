@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
 import Collection from "../../components/Collection"
-const Merchant = () => {
+const Page = () => {
   return (
     <Flex
       alignContent="center"
@@ -15,4 +15,4 @@ const Merchant = () => {
   )
 }
 
-export default Merchant
+export default Page

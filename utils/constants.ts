@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js"
 
 export const candyMachineAddress = new PublicKey(
-  "Au76VWyKneFKJ9CYfTiwgbPSfbcrHwZXmKmwHXYEqskC"
+  "4vbZFDqCNKvHMH8RzmWMSErrbTviiTawhKQwrW89XehT"
 )
 
 export const collectionAddress = new PublicKey(
@@ -9,7 +9,7 @@ export const collectionAddress = new PublicKey(
 )
 
 export const STAKE_MINT = new PublicKey(
-  "398X9iYckL5xfMRi6uEGmSRX5ACWAmPmFe7j7pLEcxkL"
+  "GsjUBgVYhcVURvT23QSV1d3KWwmvLRb8LuHMP4nBHNLs"
 )
 
 export const STAKING_PROGRAM_ID = new PublicKey(

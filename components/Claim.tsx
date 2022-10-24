@@ -1,15 +1,16 @@
 import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana"
 import { Button, Heading, Text, Image, VStack } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { candyMachineAddress } from "../utils/constants"
 import DisplayCandyMachine from "./DisplayCandyMachine"
 import { useWallet } from "@solana/wallet-adapter-react"
 
 export default function Claim() {
-  const [nft, setNft] = useState<any>()
   const wallet = useWallet()
   const { program } = useProgram(candyMachineAddress.toString(), "nft-drop")
+  const [nft, setNft] = useState<any>()
 
+  // mint nft from candy machine
   const {
     mutateAsync: claim,
     isLoading,

@@ -15,8 +15,8 @@ const metadata = {
   description: "Description",
   symbol: "SYMBOL",
   image: readFileSync("./test.png"),
-  initialSupply: 1,
-  decimals: 0,
+  initialSupply: 0,
+  decimals: 2,
 }
 
 const address = await sdk.deployer.createToken(metadata)

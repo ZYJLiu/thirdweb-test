@@ -17,8 +17,8 @@ const XNft = () => {
     <div>
       {publicKey && (
         <VStack margin="3">
-          <Text>PublicKey</Text>
-          <Text margin="3">
+          <Text color="white">PublicKey</Text>
+          <Text color="white" margin="3">
             {publicKey.toString().substring(0, 4)}...
             {publicKey.toString().substring(publicKey.toBase58().length - 4)}
           </Text>

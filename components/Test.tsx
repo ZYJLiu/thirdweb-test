@@ -8,6 +8,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana"
 import { Keypair } from "@solana/web3.js"
 import { useWallet } from "@solana/wallet-adapter-react"
 
+// test use thirdweb SDK to fetch existing Anchor program
 export default function Claim() {
   // const [wallet, setWallet] = useState(null)
   const wallet = useWallet()
@@ -39,7 +40,6 @@ export default function Claim() {
     setProgram(program)
   }
 
-  // not working
   const handleClick = useCallback(async () => {
     const counterAccount = Keypair.generate()
     const test = await program.call("initialize", {

@@ -208,7 +208,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           {children &&
             children.map((child) => (
               <NextLink href={child.href} passHref>
-                <Link key={child.label} py={2} href={child.href}>
+                <Link color="white" key={child.label} py={2} href={child.href}>
                   {child.label}
                 </Link>
               </NextLink>
@@ -232,7 +232,7 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: "Home",
-        subLabel: "Staking Nfts",
+        subLabel: "",
         href: "/",
       },
       {
@@ -241,14 +241,19 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/drop",
       },
       {
-        label: "COLLECTION",
-        subLabel: "Mint to a Collection",
-        href: "/collection",
+        label: "STAKE",
+        subLabel: "Stake NFT from Candy Machine",
+        href: "/stake",
       },
       {
         label: "TOKEN",
         subLabel: "Create a Token",
         href: "/token",
+      },
+      {
+        label: "COLLECTION",
+        subLabel: "Mint to a Collection",
+        href: "/collection",
       },
     ],
   },

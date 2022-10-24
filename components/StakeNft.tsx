@@ -1,18 +1,6 @@
 import { useState, useEffect, FC, useMemo } from "react"
-import {
-  Button,
-  HStack,
-  VStack,
-  Image,
-  Heading,
-  Text,
-  Stack,
-} from "@chakra-ui/react"
-import {
-  candyMachineAddress,
-  STAKE_MINT,
-  STAKING_PROGRAM_ID,
-} from "../utils/constants"
+import { Button, HStack, VStack, Image, Heading, Text } from "@chakra-ui/react"
+import { STAKE_MINT, STAKING_PROGRAM_ID } from "../utils/constants"
 import { useWallet } from "@solana/wallet-adapter-react"
 import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js"
 import { Connection, PublicKey } from "@solana/web3.js"
@@ -24,15 +12,14 @@ export interface Props {
 }
 
 const StakeNft: FC<Props> = (props) => {
+  const wallet = useWallet()
+  const { connected, publicKey } = useWallet()
+  const connection = new Connection("https://devnet.genesysgo.net/")
   const [nftData, setNftData] = useState<any>()
   const [isStaking, setIsStaking] = useState(false)
   const [stakeTime, setStakeTime] = useState(String)
   const [stakeState, setStakeState] = useState<any>()
   const [stakeRewards, setStakeRewards] = useState(0)
-  const connection = new Connection("https://devnet.genesysgo.net/")
-
-  const wallet = useWallet()
-  const { connected, publicKey } = useWallet()
   const [stakingProgram, setStakingProgram] = useState<any>()
   const [stakeAccountAddress, setStakeAccountAddress] = useState<PublicKey>()
   const [tokenAccountAddress, setTokenAccountAddress] = useState<PublicKey>()
@@ -42,11 +29,13 @@ const StakeNft: FC<Props> = (props) => {
     return Metaplex.make(connection).use(walletAdapterIdentity(wallet))
   }, [connection, wallet])
 
+  // thirdweb setup
   const sdk = ThirdwebSDK.fromNetwork("https://devnet.genesysgo.net/")
   if (connected) {
     sdk.wallet.connect(wallet)
   }
 
+  // use thirdweb to get deployed Anchor program
   const getProgram = async () => {
     const program = await sdk.getProgram(STAKING_PROGRAM_ID.toString())
     console.log(program)
@@ -60,6 +49,7 @@ const StakeNft: FC<Props> = (props) => {
   // fetch nfts for connected wallet
   const fetchNfts = async () => {
     if (publicKey) {
+      // use Metaplex SDK to fetch NFT metadata, need the "edition" mint address
       metaplex
         .nfts()
         .findByMint({ mintAddress: new PublicKey(props.nft.mintAddress) })
@@ -69,6 +59,7 @@ const StakeNft: FC<Props> = (props) => {
           console.log(nft)
         })
 
+      // get the token account of NFT
       const tokenAccount = (
         await connection.getTokenLargestAccounts(
           new PublicKey(props.nft.mintAddress)
@@ -77,6 +68,7 @@ const StakeNft: FC<Props> = (props) => {
 
       setTokenAccountAddress(tokenAccount)
 
+      // staking program PDA
       const [stakeStatePDA] = await PublicKey.findProgramAddress(
         [publicKey!.toBuffer(), tokenAccount.toBuffer()],
         STAKING_PROGRAM_ID
@@ -91,7 +83,7 @@ const StakeNft: FC<Props> = (props) => {
   const checkStakeStatus = async () => {
     if (stakingProgram && stakeAccountAddress) {
       try {
-        // fetch stakeState account data
+        // use thirdweb SDK to fetch stakeState account data
         const stakeStateAccount = await stakingProgram.fetch(
           "userStakeInfo",
           stakeAccountAddress
@@ -116,6 +108,7 @@ const StakeNft: FC<Props> = (props) => {
     checkStakeStatus()
   }, [stakingProgram])
 
+  // calculate time staked
   const convert = (time: number) => {
     setStakeTime(
       Math.floor(time / 24 / 60) +
@@ -152,7 +145,7 @@ const StakeNft: FC<Props> = (props) => {
     }
   }, [isStaking, stakeState])
 
-  // send unstake transaction
+  // use thirdweb SDK to send stake transaction
   const Stake = async () => {
     const txsig = await stakingProgram.call("stake", {
       accounts: {
@@ -165,6 +158,8 @@ const StakeNft: FC<Props> = (props) => {
     console.log(`https://explorer.solana.com/tx/${txsig}?cluster=devnet`)
     checkStakeStatus()
   }
+
+  // use thirdweb SDK to send unstake transaction
   const Unstake = async () => {
     if (publicKey) {
       const stakeRewardTokenAddress = await getAssociatedTokenAddress(
@@ -187,6 +182,7 @@ const StakeNft: FC<Props> = (props) => {
     }
   }
 
+  // use thirdweb SDK to send redeem transaction
   const Redeem = async () => {
     if (publicKey) {
       const stakeRewardTokenAddress = await getAssociatedTokenAddress(
@@ -213,15 +209,8 @@ const StakeNft: FC<Props> = (props) => {
           bgColor="rgba(255, 255, 255, 0.1)"
           borderRadius="20px"
           padding="10px 20px"
-          // spacing={5}
+          color="white"
         >
-          {/* <Heading size="md">{thirdwebNftData.metadata.name}</Heading>
-          <Image
-            borderRadius="25px"
-            width="200px"
-            src={thirdwebNftData.metadata.image}
-            alt=""
-          /> */}
           <Heading size="md">{nftData.name}</Heading>
           <Image
             borderRadius="25px"
@@ -230,26 +219,26 @@ const StakeNft: FC<Props> = (props) => {
             alt=""
           />
           <Text
-            bgColor="rgba(255, 255, 255, 0.05)"
             as="b"
             padding="4px 4px"
             borderRadius="25px"
             fontSize="sm"
+            color="white"
           >
             {isStaking ? `${stakeTime}` : "READY TO STAKE"}
           </Text>
           <Text as="b">Rewards: {stakeRewards}</Text>
           <HStack padding="5px 10px">
             {isStaking ? (
-              <Button onClick={Redeem} bgColor="buttonGreen">
+              <Button color="gray" onClick={Redeem} bgColor="buttonGreen">
                 <Text as="b">Redeem </Text>
               </Button>
             ) : (
-              <Text color="bodyText" as="b">
+              <Text color="white" as="b">
                 Earn Rewards
               </Text>
             )}
-            <Button onClick={isStaking ? Unstake : Stake}>
+            <Button color="gray" onClick={isStaking ? Unstake : Stake}>
               <Text as="b">{isStaking ? "Unstake" : "Stake"}</Text>
             </Button>
           </HStack>

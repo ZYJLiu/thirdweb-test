@@ -44,7 +44,7 @@ export default function DisplayCandyMachine() {
   return (
     <VStack spacing={5}>
       <HStack spacing={5}>
-        <Button color="white" onClick={prev}>
+        <Button color="gray" onClick={prev}>
           <ArrowBackIcon />
         </Button>
         {nfts && (
@@ -55,7 +55,7 @@ export default function DisplayCandyMachine() {
             padding="10px"
           />
         )}
-        <Button color="white" onClick={next}>
+        <Button color="gray" onClick={next}>
           <ArrowForwardIcon />
         </Button>
       </HStack>

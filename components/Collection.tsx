@@ -20,20 +20,23 @@ import {
 } from "@thirdweb-dev/react/solana"
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 
+// note minting to collection only works with wallet that is the update authority to the "collection" NFT
+// other wallets cannot mint to collection
 export default function Collection() {
-  const [image, setImage] = useState()
   const { wallet, publicKey } = useWallet()
-
+  const [image, setImage] = useState()
   const sdk = useMemo(() => useSDK(), [wallet])
+
+  // get "collection" NFT
   const { data: myNftCollectionProgram } = useProgram(
     "88KmLboXkyCj5T4U4Jecn4WtQB9Cp6Dnqn8K5BXKiUC2",
     "nft-collection"
   )
 
+  // get NFTs from "collection"
   const { data: myNfts } = useNFTs(myNftCollectionProgram)
-  console.log("program", myNftCollectionProgram)
-  console.log("nfts", myNfts)
 
+  // mint new NFT to "collection", only works with upgrade authority of "collection" NFT
   const {
     mutate: mintNFT,
     isLoading,
@@ -41,6 +44,7 @@ export default function Collection() {
     error,
   } = useMintNFT(myNftCollectionProgram)
 
+  // upload image
   const handleImage = async (event: any) => {
     setImage(event.target.files[0])
   }
