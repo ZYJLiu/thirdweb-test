@@ -254,7 +254,7 @@ console.log(tx)
 
 const sig = await program.claimConditions.set({
   maxClaimable: 20,
-  price: 777,
+  price: 0.01,
   startTime: new Date("December 17, 1995 03:24:00"),
 })
 

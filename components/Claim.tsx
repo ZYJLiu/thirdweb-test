@@ -3,21 +3,13 @@ import { Button, Heading, Text, Image, VStack } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { candyMachineAddress } from "../utils/constants"
 import DisplayCandyMachine from "./DisplayCandyMachine"
+import { useWallet } from "@solana/wallet-adapter-react"
 
 export default function Claim() {
-  const [wallet, setWallet] = useState(null)
   const [nft, setNft] = useState<any>()
-
-  useEffect(() => {
-    //@ts-ignore
-    if (typeof window.xnft !== "undefined") {
-      //@ts-ignore
-      setWallet(window.xnft.solana)
-    }
-  }, [])
-
+  const wallet = useWallet()
   const { program } = useProgram(candyMachineAddress.toString(), "nft-drop")
-  // using the useClaimNFT hook here
+
   const {
     mutateAsync: claim,
     isLoading,
@@ -51,8 +43,6 @@ export default function Claim() {
       )}
 
       {wallet ? (
-        // Calling the claim function and passing in the quantity we are claiming
-
         <Button
           variant="solid"
           colorScheme="green"

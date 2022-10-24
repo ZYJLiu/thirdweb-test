@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js"
 
 export const candyMachineAddress = new PublicKey(
-  "zjpEXmagUZ19DcNV8VAKXfoqHkMXaCWQcYBjaLV8TJy"
+  "Au76VWyKneFKJ9CYfTiwgbPSfbcrHwZXmKmwHXYEqskC"
 )
 
 export const collectionAddress = new PublicKey(
